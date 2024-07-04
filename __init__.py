@@ -1,8 +1,10 @@
 import asyncio
-
+from lnbits.db import Database
 from fastapi import APIRouter
 from lnbits.helpers import template_renderer
 from loguru import logger
+
+db = Database("ext_where39")
 
 where39_ext: APIRouter = APIRouter(
     prefix="/where39", tags=["Where39"]
