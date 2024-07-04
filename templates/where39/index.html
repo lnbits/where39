@@ -1,0 +1,18 @@
+<!--/////////////////////////////////////////////////-->
+<!--//PAGE FOR THE EXTENSIONS BACKEND IN LNBITS//////-->
+<!--/////////////////////////////////////////////////-->
+
+{% extends "base.html" %} {% from "macros.jinja" import window_vars with context
+%} {% block page %}
+<div class="row q-col-gutter-md" id="makeItRain">
+  <div class="col-12 col-md-8 col-lg-7 q-gutter-y-md">
+    <q-card>
+      <q-card-section>
+        <q-btn unelevated color="primary" type="a" target="_blank" href="">Where39</q-btn>
+      </q-card-section>
+    </q-card>
+  </div>
+</div>
+{% endblock %} {% block scripts %} {{ window_vars(user) }}
+
+{% endblock %}

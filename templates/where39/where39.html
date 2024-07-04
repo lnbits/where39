@@ -1,0 +1,35 @@
+{% extends "public.html" %} {% block page %}
+<div class="row q-col-gutter-md justify-center">
+  <div class="col-12 col-sm-6 col-md-5 col-lg-4">
+    <q-card class="q-pa-lg">
+      <q-card-section class="q-pa-none">
+        <div id='map'></div>
+      </q-card-section>
+    </q-card>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<link rel="stylesheet" href="./js/leaflet.css" />
+		<script src="./js/leaflet.js"></script>
+		<script src="./js/where39.js"></script>
+		<style>
+			html, body {
+				height: 100%;
+				margin: 0;
+			}
+			#map {
+				width: 600px;
+				height: 400px;
+			}
+		#inputbox{
+		width: 75%;
+		}
+		.leaflet-touch .leaflet-control-attribution{
+		box-shadow: none;
+		font-size: 17px;
+		width: 125%;
+		}
+		</style>
+		<style>body { padding: 0; margin: 0; } #map { height: 100%; width: 100vw; }</style>
+    <script src="./js/main.js"></script>
+{% endblock %}
