@@ -1,8 +1,5 @@
-from http import HTTPStatus
-
 from fastapi import Depends, Request
 from fastapi.templating import Jinja2Templates
-from starlette.exceptions import HTTPException
 from starlette.responses import HTMLResponse
 
 from lnbits.core.models import User
@@ -10,18 +7,8 @@ from lnbits.decorators import check_user_exists
 from lnbits.settings import settings
 
 from . import where39_ext, where39_renderer
-from .crud import get_where39
 
 myex = Jinja2Templates(directory="myex")
-
-
-#######################################
-##### ADD YOUR PAGE ENDPOINTS HERE ####
-#######################################
-
-
-# Backend admin page
-
 
 @where39_ext.get("/", response_class=HTMLResponse)
 async def index(request: Request, user: User = Depends(check_user_exists)):
@@ -29,42 +16,23 @@ async def index(request: Request, user: User = Depends(check_user_exists)):
         "where39/index.html", {"request": request, "user": user.dict()}
     )
 
+# Public page
 
-# Frontend shareable page
-
-
-@where39_ext.get("/{where39_id}")
-async def where39(request: Request, where39_id):
-    where39 = await get_where39(where39_id, request)
-    if not where39:
-        raise HTTPException(
-            status_code=HTTPStatus.NOT_FOUND, detail="Where39 does not exist."
-        )
+@where39_ext.get("/shared")
+async def where39(request: Request):
     return where39_renderer().TemplateResponse(
         "where39/where39.html",
         {
             "request": request,
-            "where39_id": where39_id,
-            "lnurlpay": where39.lnurlpay,
-            "web_manifest": f"/where39/manifest/{where39_id}.webmanifest",
+            "web_manifest": f"/where39/manifest/shared.webmanifest",
         },
     )
 
-
-# Manifest for public page, customise or remove manifest completely
-
-
-@where39_ext.get("/manifest/{where39_id}.webmanifest")
-async def manifest(where39_id: str):
-    where39 = await get_where39(where39_id)
-    if not where39:
-        raise HTTPException(
-            status_code=HTTPStatus.NOT_FOUND, detail="Where39 does not exist."
-        )
-
+@where39_ext.get("/manifest/shared.webmanifest")
+async def manifest():
     return {
         "short_name": settings.lnbits_site_title,
-        "name": where39.name + " - " + settings.lnbits_site_title,
+        "name": "Where39 - " + settings.lnbits_site_title,
         "icons": [
             {
                 "src": settings.lnbits_custom_logo
@@ -74,18 +42,18 @@ async def manifest(where39_id: str):
                 "sizes": "900x900",
             }
         ],
-        "start_url": "/where39/" + where39_id,
+        "start_url": "/eightball/shared",
         "background_color": "#1F2234",
-        "description": "Minimal extension to build on",
+        "description": "For dead drops and treasure hunts.",
         "display": "standalone",
-        "scope": "/where39/" + where39_id,
+        "scope": "/eightball/shared",
         "theme_color": "#1F2234",
         "shortcuts": [
             {
-                "name": where39.name + " - " + settings.lnbits_site_title,
-                "short_name": where39.name,
-                "description": where39.name + " - " + settings.lnbits_site_title,
-                "url": "/where39/" + where39_id,
+                "name": "Where39 - " + settings.lnbits_site_title,
+                "short_name": "Where39",
+                "description": "Where39 - " + settings.lnbits_site_title,
+                "url": "/eightball/shared",
             }
         ],
     }

@@ -14,12 +14,12 @@ var map = L.map('map').fitWorld()
    }
 var paracode = getUrlVars()["passcode"];
 if (paracode >= 1 && paracode <= 9999999){
-    var url = window.location.origin;
-  var attrib =  '<button id="inputbox" onclick="_mylocation()">My location</button><br/><form onsubmit="_zoomTo(); return false"><input type="text" name="lng" id="inp" placeholder="Enter four bip39 words" style="width:70%"><input style="width:30%" type="submit" value="submit"></form><div><b style="color:red;width:70%;float:left;" >Word-list shuffled using '+ paracode +'</b><a href="'+url+'"><input style="width:30%;float: right;"  type="submit" value="unshuffle"></a></div> BETA   <a href="https://github.com/arcbtc/where39">learn more about where39</a>';
+    var url = window.location.protocol + "//" + window.location.host + window.location.pathname;
+  var attrib =  '<button id="inputbox" onclick="_mylocation()">My location</button><br/><form onsubmit="_zoomTo(); return false"><input type="text" name="lng" id="inp" placeholder="Enter four bip39 words" style="width:70%"><input style="width:30%" type="submit" value="submit"></form><div><b style="color:red;width:70%;float:left;" >Word-list shuffled using '+ paracode +'</b><a href="'+url+'"><br><br/><input style="width:30%;float: left;"  type="submit" value="unshuffle"></a></div>';
   }
   else{
     
-  var attrib =  '<button id="inputbox" onclick="_mylocation()">My location</button><br/><form onsubmit="_zoomTo(); return false"><input type="text" name="lng" id="inp" placeholder="Enter four bip39 words" style="width:70%"><input value="submit" style="width:30%" type="submit"></form><div id="shuffle"><form onsubmit="_passcode(); return false"><input style="width:70%" id="passbox" type="number" name="quantity" min="1" max="9999999" placeholder="Shuffle words enter 1-9999999"><input type="submit" value="shuffle" style="width:30%"></form></div>BETA  <a href="https://github.com/arcbtc/where39">learn more about where39</a>';
+  var attrib =  '<button id="inputbox" onclick="_mylocation()">My location</button><br/><form onsubmit="_zoomTo(); return false"><input type="text" name="lng" id="inp" placeholder="Enter four bip39 words" style="width:70%"><input value="submit" style="width:30%" type="submit"></form><div id="shuffle"><form onsubmit="_passcode(); return false"><input style="width:70%" id="passbox" type="number" name="quantity" min="1" max="9999999" placeholder="Shuffle words enter 1-9999999"><input type="submit" value="shuffle" style="width:30%"></form></div>';
     }
 
 

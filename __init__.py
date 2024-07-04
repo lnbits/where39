@@ -18,3 +18,5 @@ where39_static_files = [
 ]
 def where39_renderer():
     return template_renderer(["where39/templates"])
+
+from .views import *

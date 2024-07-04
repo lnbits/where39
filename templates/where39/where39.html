@@ -1,35 +1,58 @@
-{% extends "public.html" %} {% block page %}
-<div class="row q-col-gutter-md justify-center">
-  <div class="col-12 col-sm-6 col-md-5 col-lg-4">
-    <q-card class="q-pa-lg">
-      <q-card-section class="q-pa-none">
-        <div id='map'></div>
-      </q-card-section>
-    </q-card>
-  </div>
-</div>
-{% endblock %} {% block scripts %}
-<link rel="stylesheet" href="./js/leaflet.css" />
-		<script src="./js/leaflet.js"></script>
-		<script src="./js/where39.js"></script>
-		<style>
-			html, body {
-				height: 100%;
-				margin: 0;
-			}
-			#map {
-				width: 600px;
-				height: 400px;
-			}
-		#inputbox{
-		width: 75%;
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Where 39, BIP39 location system</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/x-icon" href="/where39/static/images/favicon.ico" />
+	<link rel="stylesheet" href="/where39/static/leaflet.css" />
+	<script src="/where39/static/leaflet.js"></script>
+	<script src="/where39/static/where39.js"></script>
+	<style>
+		html,
+		body {
+			height: 100%;
+			margin: 0;
 		}
-		.leaflet-touch .leaflet-control-attribution{
-		box-shadow: none;
-		font-size: 17px;
-		width: 125%;
+
+		#map {
+			width: 600px;
+			height: 400px;
 		}
-		</style>
-		<style>body { padding: 0; margin: 0; } #map { height: 100%; width: 100vw; }</style>
-    <script src="./js/main.js"></script>
-{% endblock %}
+
+		.leaflet-touch .leaflet-control-attribution {
+			margin-bottom: 38px;
+		}
+
+		#inputbox {
+			width: 75%;
+		}
+
+		.leaflet-touch .leaflet-control-attribution {
+			box-shadow: none;
+			font-size: 17px;
+			width: 125%;
+		}
+	</style>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+
+		#map {
+			height: 100%;
+			width: 100vw;
+		}
+	</style>
+</head>
+
+<body>
+	<div id='map'></div>
+	<script src="/where39/static/main.js"></script>
+</body>
+<script>
+</script>
+
+</html>
