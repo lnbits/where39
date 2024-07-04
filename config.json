@@ -1,6 +1,6 @@
 {
   "name": "Where39",
-  "short_description": "Minimal extension to build on",
+  "short_description": "For dead drops and buryig treasure",
   "tile": "/where39/static/image/where39.png",
   "min_lnbits_version": "0.12.5",
   "contributors": [
