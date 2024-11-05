@@ -1,16 +1,19 @@
-from fastapi import Depends, Request
-from fastapi.templating import Jinja2Templates
+from fastapi import APIRouter, Depends, Request
 from starlette.responses import HTMLResponse
 
 from lnbits.core.models import User
 from lnbits.decorators import check_user_exists
 from lnbits.settings import settings
+from lnbits.helpers import template_renderer
 
 from . import where39_ext, where39_renderer
 
-myex = Jinja2Templates(directory="myex")
+where39_generic_router: APIRouter = APIRouter()
 
-@where39_ext.get("/", response_class=HTMLResponse)
+def where39_renderer():
+    return template_renderer(["where39/templates"])
+
+@where39_generic_router.get("/", response_class=HTMLResponse)
 async def index(request: Request, user: User = Depends(check_user_exists)):
     return where39_renderer().TemplateResponse(
         "where39/index.html", {"request": request, "user": user.dict()}
@@ -18,7 +21,7 @@ async def index(request: Request, user: User = Depends(check_user_exists)):
 
 # Public page
 
-@where39_ext.get("/shared")
+@where39_generic_router.get("/shared")
 async def where39(request: Request):
     return where39_renderer().TemplateResponse(
         "where39/where39.html",
@@ -28,7 +31,7 @@ async def where39(request: Request):
         },
     )
 
-@where39_ext.get("/manifest/shared.webmanifest")
+@where39_generic_router.get("/manifest/shared.webmanifest")
 async def manifest():
     return {
         "short_name": settings.lnbits_site_title,

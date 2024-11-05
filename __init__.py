@@ -1,10 +1,8 @@
-import asyncio
-from lnbits.db import Database
 from fastapi import APIRouter
-from lnbits.helpers import template_renderer
-from loguru import logger
+from .views import where39_generic_router
 
-db = Database("ext_where39")
+where39_ext: APIRouter = APIRouter(prefix="/where39", tags=["where39"])
+where39_ext.include_router(where39_generic_router)
 
 where39_ext: APIRouter = APIRouter(
     prefix="/where39", tags=["Where39"]
@@ -16,7 +14,5 @@ where39_static_files = [
         "name": "where39_static",
     }
 ]
-def where39_renderer():
-    return template_renderer(["where39/templates"])
 
-from .views import *
+__all__ = ["where39_ext", "where39_static_files"]

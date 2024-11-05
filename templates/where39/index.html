@@ -1,7 +1,3 @@
-<!--/////////////////////////////////////////////////-->
-<!--//PAGE FOR THE EXTENSIONS BACKEND IN LNBITS//////-->
-<!--/////////////////////////////////////////////////-->
-
 {% extends "base.html" %} {% from "macros.jinja" import window_vars with context
 %} {% block page %}
 <div class="row q-col-gutter-md" id="makeItRain">
@@ -106,10 +102,10 @@
 </div>
 {% endblock %} {% block scripts %} {{ window_vars(user) }}
 <script>
-  new Vue({
-    el: '#vue',
-    mixins: [windowMixin],
-    data: function () {
+window.app = Vue.createApp({
+  el: "#vue",
+  mixins: [windowMixin],
+    data() {
       return {
       }
     },
