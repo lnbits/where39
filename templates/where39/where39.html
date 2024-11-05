@@ -1,58 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <title>Where 39, BIP39 location system</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/where39/static/images/favicon.ico"
+    />
+    <link rel="stylesheet" href="/where39/static/leaflet.css" />
+    <script src="/where39/static/leaflet.js"></script>
+    <script src="/where39/static/where39.js"></script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
 
-<head>
-	<title>Where 39, BIP39 location system</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" type="image/x-icon" href="/where39/static/images/favicon.ico" />
-	<link rel="stylesheet" href="/where39/static/leaflet.css" />
-	<script src="/where39/static/leaflet.js"></script>
-	<script src="/where39/static/where39.js"></script>
-	<style>
-		html,
-		body {
-			height: 100%;
-			margin: 0;
-		}
+      #map {
+        width: 600px;
+        height: 400px;
+      }
 
-		#map {
-			width: 600px;
-			height: 400px;
-		}
+      .leaflet-touch .leaflet-control-attribution {
+        margin-bottom: 38px;
+      }
 
-		.leaflet-touch .leaflet-control-attribution {
-			margin-bottom: 38px;
-		}
+      #inputbox {
+        width: 75%;
+      }
 
-		#inputbox {
-			width: 75%;
-		}
+      .leaflet-touch .leaflet-control-attribution {
+        box-shadow: none;
+        font-size: 17px;
+        width: 125%;
+      }
+    </style>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
 
-		.leaflet-touch .leaflet-control-attribution {
-			box-shadow: none;
-			font-size: 17px;
-			width: 125%;
-		}
-	</style>
-	<style>
-		body {
-			padding: 0;
-			margin: 0;
-		}
+      #map {
+        height: 100%;
+        width: 100vw;
+      }
+    </style>
+  </head>
 
-		#map {
-			height: 100%;
-			width: 100vw;
-		}
-	</style>
-</head>
-
-<body>
-	<div id='map'></div>
-	<script src="/where39/static/main.js"></script>
-</body>
-<script>
-</script>
-
+  <body>
+    <div id="map"></div>
+    <script src="/where39/static/main.js"></script>
+  </body>
+  <script></script>
 </html>
