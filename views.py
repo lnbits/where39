@@ -6,8 +6,6 @@ from lnbits.decorators import check_user_exists
 from lnbits.settings import settings
 from lnbits.helpers import template_renderer
 
-from . import where39_ext, where39_renderer
-
 where39_generic_router: APIRouter = APIRouter()
 
 def where39_renderer():
