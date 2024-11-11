@@ -16,22 +16,16 @@
       </q-card-section>
       <q-card-section>
         <div class="text-body1">
-          Any3Words is good, but its not private. Where39 is a BIP39 location
-          protocol that you can run yourself.
-          <br />
-          Where39 is useful for dead drops, burying treasure or just sharing
-          your location with friends.
-          <br />
-          By running your own Where39 server you can be sure that your location
-          data is not being shared with anyone.
+          <strong>Any3Words</strong> is good, but it's not private. <strong>Where39</strong> is a BIP39 location protocol that you can run yourself.
+          <br /><br />
+          Where39 is useful for dead drops, burying treasure, or just sharing your location with friends. 
+          <br /><br />
+          By running your own Where39 server, you can be sure that your location data is not shared with anyone.
           <br /><br />
           <div class="row">
             <div class="col-8">
               <b>1st word</b><br />
-              First we break the earth into tiles 64/32, 2048 tiles (the amount
-              of words in the BIP32 wordlist). We allocate each tile a word,
-              this is achieved by using the earths latitude (180 degrees) and
-              logitude (360 degrees). Each tile is 5.625/5.625 degrees.
+              First, we break the Earth into 2048 tiles using the BIP39 wordlist. This is achieved by dividing the Earth's latitude (180 degrees) and longitude (360 degrees) into a grid of 64x32 tiles, each covering 5.625 x 5.625 degrees.
             </div>
             <div class="col-4">
               <img src="/where39/static/image/firstword.png" />
@@ -40,8 +34,7 @@
           <div class="row">
             <div class="col-8">
               <b>2nd word</b><br />
-              This square is split into 2025 smaller tiles 45/45, which works
-              out 0.125/0.125 degrees per tile.
+              Each tile from the 1st level is further divided into 2025 smaller tiles (45x45), resulting in tiles that are 0.125 x 0.125 degrees each.
             </div>
             <div class="col-4">
               <img src="/where39/static/image/secondword.png" />
@@ -50,8 +43,7 @@
           <div class="row">
             <div class="col-8">
               <b>3rd word</b><br />
-              This square is split into 2025 smaller tiles 45/45, which works
-              out 0.00277777777/0.00277777777 degrees per tile.
+              These tiles are then split again into 2025 smaller tiles (45x45), creating tiles that are 0.00277777777 x 0.00277777777 degrees.
             </div>
             <div class="col-4">
               <img src="/where39/static/image/thirdword.png" />
@@ -60,8 +52,7 @@
           <div class="row">
             <div class="col-8">
               <b>4th word</b><br />
-              This square is split into 2025 smaller tiles 45/45, which works
-              out 0.00006172839/0.00006172839 degrees per tile.
+              The next division produces another set of 2025 smaller tiles (45x45), with each tile measuring 0.00006172839 x 0.00006172839 degrees.
             </div>
             <div class="col-4">
               <img src="/where39/static/image/forthword.png" />
@@ -70,9 +61,8 @@
           <div class="row">
             <div class="col-8">
               <b>5th word</b><br />
-              The 5th word is the tresure word, and usually not necessary. We
-              can split this square into 400 smaller tiles 20/20, which works
-              out 0.00000308642/0.00000308642 degrees per tile.
+              The 5th word, often called the "treasure word," is usually optional. However, if needed, the final division splits each tile into 400 smaller tiles (20x20), with each one being 0.00000308642 x 0.00000308642 degrees.
+            <br/><br/>Learn more about where39<a href="https://github.com/arcbtc/where39">https://github.com/arcbtc/where39</a>
             </div>
             <div class="col-4">
               <img src="/where39/static/image/fifthword.png" />
